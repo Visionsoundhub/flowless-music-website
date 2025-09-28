@@ -1,9 +1,9 @@
 backend:
   name: git-gateway
-  branch: main # Change this to your repo's default branch if it's not main
+  branch: main
 
-media_folder: "assets/images" # Folder where uploaded media is stored
-public_folder: "/assets/images" # Folder where media is served from
+media_folder: "assets/images"
+public_folder: "/assets/images"
 
 collections:
   - name: "site_settings"
