@@ -112,6 +112,9 @@
         }
 
         header .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -229,7 +232,9 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1511379938547-c1f69419868d?q=80&w=2070&auto=format&fit=crop') no-repeat center center/cover;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.8)), var(--hero-bg);
+            background-size: cover;
+            background-position: center;
         }
 
         #hero .hero-content { max-width: 700px; }
@@ -255,7 +260,7 @@
             height: 300px;
             background-color: var(--secondary-surface-color);
             border-radius: 5px;
-            background-image: url('https://images.unsplash.com/photo-1516223725357-6db4e2984b24?q=80&w=1974&auto=format&fit=crop');
+            background-image: var(--about-image);
             background-size: cover;
             background-position: center;
         }
@@ -370,9 +375,9 @@
                 <ul>
                     <li><a href="#hero">Αρχική</a></li>
                     <li><a href="#about">About</a></li>
-                    <li><a href="#">Our Roster</a></li>
-                    <li><a href="#radio">Soundcheck Radio</a></li>
-                    <li><a href="#merch">Merch</a></li>
+                    <li><a href="roster-final.html">Our Roster</a></li>
+                    <li><a href="soundcheck-final.html">Soundcheck Radio</a></li>
+                    <li><a href="merch-preview.html">Merch</a></li>
                 </ul>
             </nav>
             <button class="mobile-nav-toggle" aria-controls="mobile-navigation-ul" aria-expanded="false">
@@ -387,9 +392,9 @@
         <ul id="mobile-navigation-ul">
             <li><a href="#hero">Αρχική</a></li>
             <li><a href="#about">About</a></li>
-            <li><a href="#">Our Roster</a></li>
-            <li><a href="#radio">Soundcheck Radio</a></li>
-            <li><a href="#merch">Merch</a></li>
+            <li><a href="roster-final.html">Our Roster</a></li>
+            <li><a href="soundcheck-final.html">Soundcheck Radio</a></li>
+            <li><a href="merch-preview.html">Merch</a></li>
         </ul>
         <button class="nav-close-btn">Κλείσιμο</button>
     </nav>
@@ -399,9 +404,9 @@
             <div class="container">
                 <div class="hero-content">
                     <h2 class="subtitle">Featured Artist of the Month</h2>
-                    <h1>ΟΝΟΜΑ ΚΑΛΛΙΤΕΧΝΗ</h1>
-                    <p>Μια σύντομη, δυνατή περιγραφή για τον καλλιτέχνη και την τελευταία του δουλειά.</p>
-                    <a href="#" class="btn">Δες το προφίλ του</a>
+                    <h1 id="hero-artist-name">ΟΝΟΜΑ ΚΑΛΛΙΤΕΧΝΗ</h1>
+                    <p id="hero-artist-description">Μια σύντομη, δυνατή περιγραφή για τον καλλιτέχνη και την τελευταία του δουλειά.</p>
+                    <a id="hero-profile-link" href="#" class="btn">Δες το προφίλ του</a>
                 </div>
             </div>
         </section>
@@ -410,11 +415,10 @@
             <div class="container">
                 <h2>About Flowless Music</h2>
                 <div class="about-grid">
-                    <div class="about-image-placeholder"></div>
+                    <div id="about-image" class="about-image-placeholder"></div>
                     <div class="about-content">
-                        <p>Η Flowless Music είναι ένα ανεξάρτητο label, θυγατρική της Landing Mind Records, που γεννήθηκε από την ανάγκη για αυθεντική καλλιτεχνική έκφραση. Χωρίς φίλτρα, χωρίς συμβιβασμούς.</p>
-                        <p>Δημιουργήθηκε στη Λάρισα από τους Black Vybez και Evoid, δύο καλλιτέχνες με βαθιές ρίζες στη rap σκηνή, με έναν και μόνο στόχο: να δώσουμε στους καλλιτέχνες μας τα εργαλεία και την πλατφόρμα για να μοιραστούν την αλήθεια τους.</p>
-                        <p>Κάθε βήμα, κάθε παραγωγή, χρηματοδοτείται αποκλειστικά από εμάς. Η δική σας στήριξη είναι η κινητήρια δύναμη μας.</p>
+                        <div id="about-text-content">
+                            </div>
                         <p class="tagline">Δεν βάζουμε όρια στη μουσική. Είναι raw, είναι unfiltered, είναι Flowless.</p>
                     </div>
                 </div>
@@ -424,21 +428,16 @@
         <section id="radio">
             <div class="container">
                 <h2>Soundcheck Radio</h2>
-                <p class="subtitle">Το τελευταίο επεισόδιο είναι εδώ.</p>
-                <div class="video-player-placeholder"><p>YouTube Player Placeholder</p></div>
-                <a href="#" class="btn">Περισσότερα επεισόδια</a>
+                <div id="radio-content">
+                    </div>
             </div>
         </section>
 
         <section id="merch">
             <div class="container">
                 <h2>Latest Merch</h2>
-                <div class="merch-grid">
-                    <a href="#" class="merch-item"><div class="merch-image-placeholder"></div><h3>Όνομα Προϊόντος 1</h3><p>Soundcheck Radio Merch</p></a>
-                    <a href="#" class="merch-item"><div class="merch-image-placeholder"></div><h3>Όνομα Προϊόντος 2</h3><p>Artist Merch</p></a>
-                    <a href="#" class="merch-item"><div class="merch-image-placeholder"></div><h3>Όνομα Προϊόντος 3</h3><p>Flowless Label Merch</p></a>
-                </div>
-                <a href="#" class="btn">Όλη η συλλογή</a>
+                <div id="merch-content">
+                    </div>
             </div>
         </section>
     </main>
@@ -454,6 +453,8 @@
         </div>
     </footer>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/markdown-it/13.0.1/markdown-it.min.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             // ======================= MOBILE NAVIGATION LOGIC =======================
@@ -504,6 +505,84 @@
             });
         });
     </script>
+    <script>
+        // ======================= CMS DATA INJECTION LOGIC =======================
+        // Fetch and parse the YAML data from the homepage markdown file
+        fetch('/content/settings/homepage.md')
+            .then(response => response.text())
+            .then(markdownContent => {
+                const parts = markdownContent.split('---');
+                const yaml = parts[1];
+                const data = jsyaml.load(yaml);
+                const md = new markdownit();
 
+                // HERO SECTION
+                if (data.homepage && data.homepage.hero_section) {
+                    const hero = data.homepage.hero_section;
+                    document.getElementById('hero').style.setProperty('--hero-bg', `url('${hero.background_image}')`);
+                    document.getElementById('hero-artist-name').textContent = hero.featured_artist_name;
+                    document.getElementById('hero-artist-description').textContent = hero.featured_artist_description;
+                    document.getElementById('hero-profile-link').href = hero.featured_artist_link;
+                }
+
+                // ABOUT SECTION
+                if (data.homepage && data.homepage.about_section) {
+                    const about = data.homepage.about_section;
+                    document.getElementById('about-image').style.setProperty('--about-image', `url('${about.about_image}')`);
+                    document.getElementById('about-text-content').innerHTML = md.render(about.about_text);
+                }
+
+                // RADIO SECTION
+                if (data.homepage && data.homepage.radio_section) {
+                    const radio = data.homepage.radio_section;
+                    const radioContent = document.getElementById('radio-content');
+                    if (radio.latest_episode_url) {
+                        radioContent.innerHTML = `
+                            <p class="subtitle">Το τελευταίο επεισόδιο είναι εδώ.</p>
+                            <div class="video-player-placeholder">
+                                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/${radio.latest_episode_url.split('/').pop()}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                            <a href="${radio.more_episodes_link}" class="btn">Περισσότερα επεισόδια</a>
+                        `;
+                    } else {
+                        radioContent.innerHTML = `
+                            <p class="subtitle">Έρχεται σύντομα!</p>
+                            <div class="video-player-placeholder">
+                                <p>Coming Soon</p>
+                            </div>
+                            <a href="${radio.more_episodes_link}" class="btn">Περισσότερα επεισόδια</a>
+                        `;
+                    }
+                }
+
+                // MERCH SECTION
+                if (data.homepage && data.homepage.merch_section) {
+                    const merch = data.homepage.merch_section;
+                    const merchContent = document.getElementById('merch-content');
+                    if (merch.merch_status === 'Show Merch') {
+                        let html = `<div class="merch-grid">`;
+                        merch.merch_items.forEach(item => {
+                            html += `
+                                <a href="${item.link}" class="merch-item">
+                                    <div class="merch-image-placeholder" style="background-image: url('${item.image}')"></div>
+                                    <h3>${item.title}</h3>
+                                    <p>${item.description}</p>
+                                </a>
+                            `;
+                        });
+                        html += `</div><a href="#" class="btn">Όλη η συλλογή</a>`;
+                        merchContent.innerHTML = html;
+                    } else {
+                        merchContent.innerHTML = `
+                            <div class="merch-grid">
+                                <p class="subtitle">Έρχεται σύντομα!</p>
+                            </div>
+                        `;
+                    }
+                }
+            })
+            .catch(error => console.error('Error fetching homepage data:', error));
+
+    </script>
 </body>
 </html>
