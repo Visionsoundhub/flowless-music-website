@@ -1,0 +1,192 @@
+backend:
+  name: git-gateway
+  branch: main # Change this to your repo's default branch if it's not main
+
+media_folder: "assets/images" # Folder where uploaded media is stored
+public_folder: "/assets/images" # Folder where media is served from
+
+collections:
+  - name: "site_settings"
+    label: "Ρυθμίσεις Ιστοσελίδας"
+    delete: false
+    editor:
+      preview: false
+    files:
+      - file: "content/settings/homepage.md"
+        label: "Αρχική Σελίδα"
+        name: "homepage"
+        fields:
+          - label: "Featured Artist Section"
+            name: "hero_section"
+            widget: "object"
+            fields:
+              - label: "Background Image"
+                name: "background_image"
+                widget: "image"
+                hint: "Η εικόνα που εμφανίζεται πίσω από τον τίτλο."
+              - label: "Featured Artist Name"
+                name: "featured_artist_name"
+                widget: "string"
+              - label: "Description"
+                name: "featured_artist_description"
+                widget: "string"
+              - label: "Profile Link"
+                name: "featured_artist_link"
+                widget: "string"
+          - label: "About Section"
+            name: "about_section"
+            widget: "object"
+            fields:
+              - label: "About Text"
+                name: "about_text"
+                widget: "text"
+              - label: "About Image"
+                name: "about_image"
+                widget: "image"
+          - label: "Soundcheck Radio Section"
+            name: "radio_section"
+            widget: "object"
+            fields:
+              - label: "Latest Episode URL"
+                name: "latest_episode_url"
+                widget: "string"
+                hint: "Εισάγετε το link του YouTube. Αν αφήσετε το πεδίο κενό, θα εμφανιστεί 'Coming Soon'."
+              - label: "More Episodes Link"
+                name: "more_episodes_link"
+                widget: "string"
+          - label: "Merch Section"
+            name: "merch_section"
+            widget: "object"
+            fields:
+              - label: "Merch Status"
+                name: "merch_status"
+                widget: "select"
+                options: ["Show Merch", "Coming Soon"]
+                default: "Show Merch"
+              - label: "Merch Items"
+                name: "merch_items"
+                widget: "list"
+                fields:
+                  - label: "Item Image"
+                    name: "image"
+                    widget: "image"
+                  - label: "Item Title"
+                    name: "title"
+                    widget: "string"
+                  - label: "Item Description"
+                    name: "description"
+                    widget: "string"
+                  - label: "Item Link"
+                    name: "link"
+                    widget: "string"
+      - file: "content/settings/soundcheck.md"
+        label: "Soundcheck Radio"
+        name: "soundcheck_page"
+        fields:
+          - label: "Hero Section"
+            name: "hero_section"
+            widget: "object"
+            fields:
+              - {label: "Background Image", name: "background_image", widget: "image"}
+              - {label: "Tagline", name: "tagline", widget: "string"}
+          - label: "Intro Section"
+            name: "intro_section"
+            widget: "object"
+            fields:
+              - {label: "Hosts Image", name: "hosts_image", widget: "image"}
+              - {label: "Text", name: "text", widget: "markdown"}
+          - label: "How to Participate Section"
+            name: "steps_section"
+            widget: "object"
+            fields:
+              - {label: "Button 1 Link", name: "button1_link", widget: "string"}
+              - {label: "Button 2 Link", name: "button2_link", widget: "string"}
+              - {label: "Button 3 Link", name: "button3_link", widget: "string"}
+          - label: "Details Section"
+            name: "details_section"
+            widget: "object"
+            fields:
+              - {label: "Rules", name: "rules", widget: "markdown"}
+              - label: "Schedule Status"
+                name: "schedule_status"
+                widget: "select"
+                options: ["Show Schedule", "Coming Soon"]
+                default: "Show Schedule"
+              - {label: "Schedule Text", name: "schedule_text", widget: "markdown"}
+          - label: "Archive Section"
+            name: "archive_section"
+            widget: "object"
+            fields:
+              - {label: "Archive Status", name: "archive_status", widget: "select", options: ["Show Episodes", "Coming Soon"]}
+              - label: "Episodes"
+                name: "episodes"
+                widget: "list"
+                fields:
+                  - {label: "Title", name: "title", widget: "string"}
+                  - {label: "Date", name: "date", widget: "string"}
+                  - {label: "YouTube Link", name: "youtube_link", widget: "string"}
+                  - {label: "Podcast Link", name: "podcast_link", widget: "string"}
+      - file: "content/settings/merch.md"
+        label: "Merch"
+        name: "merch_page"
+        fields:
+          - label: "Hero Section"
+            name: "hero_section"
+            widget: "object"
+            fields:
+              - {label: "Background Image", name: "background_image", widget: "image"}
+          - label: "Next Artist Drop"
+            name: "artist_drop"
+            widget: "object"
+            fields:
+              - label: "Status"
+                name: "status"
+                widget: "select"
+                options: ["Coming Soon", "Show Details"]
+                default: "Coming Soon"
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Description", name: "description", widget: "string"}
+              - {label: "Image", name: "image", widget: "image"}
+              - {label: "Date", name: "date", widget: "string", required: false}
+          - label: "Soundcheck Merch"
+            name: "soundcheck_merch"
+            widget: "object"
+            fields:
+              - {label: "Description", name: "description", widget: "text"}
+              - label: "Button Text"
+                name: "button_text"
+                widget: "select"
+                options: ["Ενημέρωσέ με", "Δες τα σχέδια"]
+                default: "Ενημέρωσέ με"
+          - label: "Join the Crew"
+            name: "join_the_crew"
+            widget: "object"
+            fields:
+              - label: "Status"
+                name: "status"
+                widget: "select"
+                options: ["Show Photos", "Coming Soon"]
+                default: "Show Photos"
+              - label: "Photos"
+                name: "photos"
+                widget: "list"
+                fields:
+                  - {label: "Image", name: "image", widget: "image"}
+  - name: "artists"
+    label: "Roster Καλλιτεχνών"
+    folder: "content/artists"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Name", name: "name", widget: "string"}
+      - {label: "Photo", name: "photo", widget: "image"}
+      - {label: "Description (Bio)", name: "bio", widget: "markdown"}
+      - label: "Socials"
+        name: "socials"
+        widget: "object"
+        fields:
+          - {label: "Spotify", name: "spotify", widget: "string", required: false}
+          - {label: "Instagram", name: "instagram", widget: "string", required: false}
+          - {label: "YouTube", name: "youtube", widget: "string", required: false}
+          - {label: "Soundcloud", name: "soundcloud", widget: "string", required: false}
+      - {label: "Latest Track Embed Code", name: "trackEmbed", widget: "text", required: false, hint: "Paste the embed code from Spotify/YouTube"}
